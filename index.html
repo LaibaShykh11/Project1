@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TaskMaster - Task Management</title>
+    <!-- Add Bootstrap CSS link here -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <!-- Add custom CSS (styles.css) link here -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header id="header">
+      <div class="d-flex flex-column">
+        <div class="profile">
+          <!-- Navigation Bar -->
+          <h1 class="text-light">TaskMaster</h1>
+          <nav id="navbar" class="nav-menu navbar">
+            <ul>
+              <li>
+                <a href="#hero" class="nav-link scrollto active">
+                  <span>DashBoard</span></a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  data-toggle="modal"
+                  data-target="#createTaskModal"
+                  class="nav-link scrollto"
+                >
+                  <span>Create Task</span></a
+                >
+              </li>
+              <li>
+                <a href="#profile" class="nav-link scrollto">
+                  <span>Tracking Table</span></a
+                >
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <section>
+        <div id="task-list-container" class="container">
+          <h2>Task List</h2>
+          <div class="row">
+            <!-- Add a button to create a new task -->
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <!-- Task Card 1 -->
+              <div class="card mb-3">
+                <div class="card-body">
+                  <h5 class="card-title">Task 1</h5>
+                  <p class="card-text">Task description goes here.</p>
+                  <p class="card-text">Due Date: January 15, 2024</p>
+                  <p class="card-text">Assigned To: User 1</p>
+                  <a href="#" class="btn btn-primary">Details</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <!-- Task Card 2 -->
+              <div class="card mb-3">
+                <div class="card-body">
+                  <h5 class="card-title">Task 2</h5>
+                  <p class="card-text">Task description goes here.</p>
+                  <p class="card-text">Due Date: February 10, 2024</p>
+                  <p class="card-text">Assigned To: User 2</p>
+                  <a href="#" class="btn btn-primary">Details</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <!-- Task Card 1 -->
+              <div class="card mb-3">
+                <div class="card-body">
+                  <h5 class="card-title">Task 3</h5>
+                  <p class="card-text">Task description goes here.</p>
+                  <p class="card-text">Due Date: January 15, 2024</p>
+                  <p class="card-text">Assigned To: User 1</p>
+                  <a href="#" class="btn btn-primary">Details</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-4 mb-3 mt-3">
+              <button
+                class="btn btn-primary btn-secondary"
+                data-toggle="modal"
+                data-target="#createTaskModal"
+              >
+                Create New Task
+              </button>
+              <button class="btn btn-danger delete-button btn-secondary">
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="container">
+          <h2>Progress Tracking</h2>
+          <table class="table table-bordered table-hover">
+            <thead>
+              <tr>
+                <th>Task</th>
+                <th>Status</th>
+                <th>Assigned To</th>
+                <th>Assigned By</th>
+                <th>Due</th>
+                <th>Priority</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Task 1</td>
+                <td><span class="status not-started">Not started</span></td>
+                <td>User 1</td>
+                <td>Manager</td>
+                <td>November 30 2024</td>
+                <td><span class="highlight">High</span></td>
+              </tr>
+              <tr>
+                <td>Task 2</td>
+                <td><span class="status in-progress">In Progress</span></td>
+                <td>User 2</td>
+                <td>Manager</td>
+                <td>October 1 2024</td>
+                <td><span class="highlight">High</span></td>
+              </tr>
+              <!-- Add more rows for each task and its status -->
+            </tbody>
+          </table>
+        </div>
+        <!-- Create Task Modal -->
+        <div class="modal fade" id="createTaskModal">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="createTaskModalLabel">
+                  Create New Task
+                </h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <!-- Add a form to create a new task -->
+                <form>
+                  <div class="form-group">
+                    <label for="taskTitle">Task Title</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="taskTitle"
+                      placeholder="Enter task title"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="taskDescription">Task Description</label>
+                    <textarea
+                      class="form-control"
+                      id="taskDescription"
+                      rows="4"
+                      placeholder="Enter task description"
+                    ></textarea>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="priority">Priority</label>
+                    <input
+                      type="range"
+                      class="form-control-range"
+                      id="priority"
+                      min="1"
+                      max="5"
+                      value="3"
+                    />
+                    <!-- Priority labels -->
+                    <div class="priority-labels">
+                      <span>1</span>
+                      <span>2</span>
+                      <span>3</span>
+                      <span>4</span>
+                      <span>5</span>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="dueDate">Due Date</label>
+                    <input type="date" class="form-control" id="dueDate" />
+                  </div>
+                  <div class="form-group">
+                    <label for="assignedTo">Assigned To</label>
+                    <select class="form-control" id="assignedTo">
+                      <option>User 1</option>
+                      <option>User 2</option>
+                      <option>User 3</option>
+                      <option>User 4</option>
+                      <!-- Add more user options here -->
+                    </select>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  onclick="handleTaskCreation()"
+                >
+                  Create Task
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer id="footer">
+      <div class="container">
+        <div class="copyright">&copy; Copyright</div>
+        <div class="credits">
+          <h5>Designed by Laiba</h5>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript for creating new tasks -->
+    <script>
+      // Function to create a new task box
+      function createTaskBox(taskTitle, taskDescription, dueDate, assignedTo) {
+        // Create a new column div for the task
+        var taskColumn = document.createElement('div')
+        taskColumn.classList.add('col-md-4')
+
+        // Create a task card
+        var taskCard = document.createElement('div')
+        taskCard.classList.add('card', 'mb-3')
+
+        // Create task card body
+        var cardBody = document.createElement('div')
+        cardBody.classList.add('card-body')
+
+        // Set task card content
+        cardBody.innerHTML = `
+            <h5 class="card-title">${taskTitle}</h5>
+            <p class="card-text">${taskDescription}</p>
+            <p class="card-text">Due Date: ${dueDate}</p>
+            <p class="card-text">Assigned To: ${assignedTo}</p>
+            <a href="#" class="btn btn-primary">Details</a>
+        `
+
+        // Append card body to card
+        taskCard.appendChild(cardBody)
+
+        // Append card to column
+        taskColumn.appendChild(taskCard)
+
+        // Append column to the task list container
+        var taskListContainer = document.getElementById('task-list-container')
+        taskListContainer.querySelector('.row').appendChild(taskColumn)
+      }
+
+      // Function to handle form submission and create a new task
+      function handleTaskCreation() {
+        // Get values from the form
+        var taskTitle = document.getElementById('taskTitle').value
+        var taskDescription = document.getElementById('taskDescription').value
+        var dueDate = document.getElementById('dueDate').value
+        var assignedTo = document.getElementById('assignedTo').value
+
+        // Create a new task box
+        createTaskBox(taskTitle, taskDescription, dueDate, assignedTo)
+
+        // Close the modal
+        $('#createTaskModal').modal('hide')
+      }
+      // Variable to store the ID of the task to be deleted
+      var taskIdToDelete = null
+
+      // Function to set the task ID to be deleted
+      function setTaskIdToDelete(taskId) {
+        taskIdToDelete = taskId
+      }
+    </script>
+
+    <!-- Add Bootstrap JS and jQuery scripts here -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
